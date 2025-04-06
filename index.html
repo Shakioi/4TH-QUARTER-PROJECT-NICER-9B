@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4TH QUARTER PROJECT-NICER-9B</title>
+    <style>
+        /* General page setup */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f1e1; /* Vintage light color background */
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #fafafa;
+            font-family: 'Georgia', serif;
+        } 
+
+        h2 {
+            color: #413e3e;
+            font-family: 'Georgia', serif;
+        }
+        h3 {
+            color: #413e3e;
+            font-family: 'Georgia', serif;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* Header Styles */
+        header {
+            background-color: #5a3d3d; 
+            padding: 20px 0;
+            text-align: center;
+            color: rgb(150, 101, 101);
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f4a261; /* Vintage orange hover effect */
+        }
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* Main content styles */
+        .container {
+            max-width: 100%;
+            margin: 60px auto 20px;
+            padding: 20px;
+        }
+
+        .content-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .content-section h3 {
+            font-size: 1.8em;
+            color: #6a4e23;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid #6a4e23;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section .description {
+            flex: 1;
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+
+        .contact-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h3 {
+            font-size: 1.8em;
+            color: #6a4e23;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            background-color: #6a4e23;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #4b3517;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-section .description {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+         /* Projects Section */
+         .projects {
+            background-color: #946a6a; /* Very light pinkish background */
+            padding: 60px 0;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            padding: 20px;
+            background-color: #997076; /* Soft pink header for project card */
+            color: #ece2e2;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .project-card p {
+            padding: 15px;
+            color: #7f8c8d;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #5a3d3d;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome To My Web Blog!!</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#profile">Profile</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <h3>About This Blog</h3>
+            <h4>Finished on Aplir 6, 2025</h4>
+            <p>This blog showcases 10 diverse topics from the different subjects. These are my favorite outputs , with each post designed to inspire and inform. Stay tuned for more posts as we explore various subjects of interest!</p>
+        </section>
+
+         <!-- Profile Section -->
+         <section id="profile" class="profile-section">
+            <img src="profile.jpg" alt="Profile Picture">
+            <div class="description">
+                <h2>Aeisha Kim M. Nicer</h2>                                                                                                                                                       
+                <h3>Grade 9-B</h3>
+                <p>Hello! You can call me  Aeisha or Kim. I am a passionate blogger who loves exploring new ideas and sharing knowledge on various topics. I am also a tranfery student here at GLC and as soon as i step on the gates of Golden Link College, I've had many new experiences that have been exciting and eye-opening. I've made great friends and met many wonderful people, which has made my time here enjoyable. This journey has pushed me to step outside my comfort zone and face challenges that I once found difficult. 
+
+                    Whether it’s working on group projects, joining clubs, or simply talking to classmates, I’ve learned so much from each experience. I now see challenges as chances to grow instead of things to avoid. Overall, my time at Golden Link College has changed me for the better, and I'm grateful for everything I have learned.  Welcome to my corner of the internet!</p>
+            </div>
+        </section>
+
+        <!-- Blog Posts -->
+        <section class="content-section">
+            <h3>Output 1: Computer</h3>
+            <p>Having a computer subject was quite shocking for me because my previous school didn't offer this kind of course. At first, I was a bit nervous since I had never used a computer or laptop before. However, I really enjoyed our topics and learned quickly how to code; I feel like a hacker now! Here are all the web pages that I have created.</p>
+            <!-- Project 1 -->
+      <div class="project-card">
+        <h3><a href="https://shakioi.github.io/1stproject/">1st Project</a></h3>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <h3><a href="https://shakioi.github.io/Assignment9-B/">Assignment 9-B</a></h3>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <h3><a href="https://shakioi.github.io/Second.Quarterly.Assessment/">Second Quarterly Assessment</a></h3>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <h3><a href="https://shakioi.github.io/Project-Computer-Nicer-9B/">Computer Nicer 9B</a></h3>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <h3><a href="ttps://shakioi.github.io/Trio.Web.Blog/">Trio Web Blog</a></h3>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card">
+        <h3><a href="https://shakioi.github.io/3rd.Quarterly.Assessment/">3rd Quarterly Assessment</a></h3>
+      </div>
+
+        </section>
+
+        <section class="content-section">
+            <h3>Output 2: Values</h3>
+            <p>In our Values subject, we conducted a fear-processing project where we faced our biggest fears. Through this project, I gained bravery by confronting my fear of the dark. The entire process of this journey is documented in a video, showcasing what I have learned.</p>
+            <video width="400" controls>
+                <source src="values.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+              </video>
+        </section>
+        <section class="content-section">
+            <h3>Output 3: Fillipino</h3>
+            <p>I have a deep appreciation for Philippine history because I enjoy unlocking the mysteries of the past. The bravery of the Filipino people during those times amazes me. We conducted research on the life of Dr. Jose Rizal, and I want to share what I have learned with all of you.</p>
+           <!-- Projects Section -->
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="fill1.jpg" alt="Pic 1">
+                </div>
+                <div class="project-card">
+                    <img src="fill2.jpg" alt="Pic 2">
+                </div>
+                <div class="project-card">
+                    <img src="fill3.jpg" alt="Pic 3">
+                </div>
+                <div class="project-card">
+                    <img src="fill4.jpg" alt="Pic 3">
+                </div>
+                <div class="project-card">
+                    <img src="fill5.jpg" alt="Pic 3">
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="content-section">
+            <h3>Output 4: Science</h3>
+            <p>Discovering the secrets of nature is incredibly enjoyable, and I am truly amazed at how nature provides the things that exist in our world. I must say, the beauty of nature is unique. One of my favorite activities was building a DIY volcano, which we presented using vinegar and baking powder.</p>
+            <video width="400" controls>
+                <source src="sci.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+              </video>
+        </section>
+        <section class="content-section">
+            <h3>Output 5: TLE</h3>
+            <p>I thoroughly enjoyed cooking various cuisines, whether it's an appetizer, dessert, or main dish. Through my cooking journey, I can proudly say that I have improved my culinary skills, and I am happy about it because we not only enjoy the food but also learn about its definitions, contributions, and differences. Here is an example of our performance assessment. We have performance assessments every quarter, but we only have these pictures since we are not allowed to use phones during class hours. </p>
+            <video width="400" controls>
+                <source src="tle.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+              </video>
+        </section>                                                                                                                                                                                                                                                                                                        
+        <section class="content-section">
+            <h3>Output 6: English </h3>
+            <p>Reading stories helps me escape from reality and enter a world of fantasy and complexity. "The Great Gatsby" is a book full of lessons, and I really enjoyed reading it. Here are some of the summary of it's chapters.</p>
+
+             <h3>Summary of CHAPTER 1-4</h3>
+           <p>Nick Carraway is the narrator of the story. The story begins by him telling what he learned from his father—not to criticize or judge a person without knowing their situation. He also mentioned Gatsby, the man who gives his name to the book and represents everything for which he has an unaffected scorn. Nick graduated from New Haven in 1915, just a quarter of a century after his father, and participated in the migration called the Great War._____ In the spring of 1922, he decided to go to New York to bond for a business and rented an eighty-dollar house on Long Island called West Egg, a home for those having their wealth recently. East Egg was more upper class than West Egg. Nick has many connections on East Egg since he graduated from Yale. That night he went to East Egg to have dinner with his cousin Daisy and her husband Tom. After Nicks arrived at their house, he saw a young, beautiful girl named Baker, a friend of his cousin Daisy. Then they all have a conversation. After the dinner, the party ends, and Baker wants to go to bed because she still has a golf tournament tomorrow. After Nick arrived home, he saw a strange figure from far away with green light, and staring into the waters . He suggested that it was Mr. Gatsby; it was his first time seeing him. Nick lost his sight at him for a second, but the moment he looked again, Mr. Gatsby vanished. ____________________________________________________________________________________________________________________________________________________________________ In Chapter Two of "The Great Gatsby," Nick Carraway goes to New York City with Tom Buchanan and Tom's mistress, Myrtle Wilson, where they have a party in an apartment that Tom keeps for his affair. At the apartment, they have a wild party with Myrtle's friends, getting very drunk and disorderly. The mood gets more chaotic as the night progresses. Myrtle provokes Tom by mentioning his wife, Daisy, which angers him. Tom becomes violent and loses his temper which leads him to hit Myrtle in her nose. This scene exposes Tom’s moral decay and selfish nature, contrasting sharply with the more refined lives of other characters in the story. ____________________________________________________________________________________________________________________________________________________________________  In Chapter 3 of "The Great Gatsby," Gatsby invited Nivk to go to his party. He describes the party, it was filled with music, dancing, and a lot of people. Nick feels uncomfortable and out of place at first because he doesn't know the guests of the party. While at the party, he meets Gatsby, who is surprisingly friendly. Nick learns more about Gatsby's mysterious past. He also discovered Gatsby love for Daisy, Nick cousin. This chapter highlights the excitement and glamour of the 1920s era, but also hints at the emptiness behind the parties and the people attending them. By the end, Nick reflects on the strange mix of wealth and loneliness that surrounds Gatsby and his world. ____________________________________________________________________________________________________________________________________________________________________ In Chapter 4 of "The Great Gatsby," Nick Carraway lists some of the guests who attended Gatsby's parties over the summer. One morning, Gatsby invites Nick to lunch in New York City. During their time together, Gatsby shares his background, claiming to be the son of wealthy parents and a war hero, but Nick is skeptical about his story.___ At lunch, they meet Gatsby's friend Meyer Wolfsheim, who is rumored to be involved in organized crime. Afterward, Gatsby takes Nick for a drive in his luxurious car, showcasing his wealth. They discuss Gatsby's love for Daisy Buchanan, Nick's cousin. Gatsby wants Nick to help him reconnect with Daisy, who is now married to Tom. The chapter highlights Gatsby's mysterious persona and his longing for the past.</p>
+              <h3>Comprehension questions of CHAPER 2-4</h3>
+           <p>CHAPTER 1_____ 1.)Nick doesn't judge Gatsby because he learnt from his father that we should not criticise or judge anyone. It's also because Gatsby was the man who gave his name to the book and represented everything.____ 2.)Nick lives in New York. He rented a house on a long island called West Egg. A home for the new rich or for those who have had their fortune recently.____ 3.)Why does Nick differ from other people living in his neighbourhood? Its because he graduated from Yale, a private university in New Haven, and has many connections. Nick also meets Daisy's husband in there because he is a former member of a social club, so he has many connections in East and West Egg.____ 4.)Miss Baker suggests that Tom is on the phone with his lover. She said hesitantly that Tom's got some women in New York. She also said that she might have the decency not to telephone him at dinner time.____ 5.)On the first time Nick saw Gatsby, he was standing with his hands in his pockets regarding the silver pepper of the stars. He was looking out towards the dark water and stretched his arms on it in a curious way. ____________________________________________________________________________________________________________________________________________________________________ CHAPTER 2____ 1.)Tom Buchanan takes Nick Carraway to George Wilson’s garage. George is a mechanic and the husband of Tom's mistress. The garage is in a bleak area known as the Valley of Ashes. This visit shows how hard George’s life is and adds to the story's tension.____ 2.)the valley between East Egg and West Egg is known as the Valley of Ashes. It's a desolate area characterized by its gray, ashy landscape, symbolizing the moral and social decay that contrasts with the wealth and opulence of the Eggs.____ 3.)Nick Carraway feels uneasy about the people at the party Tom takes him to. The guests at Myrtle Wilson's apartment are loud and rude, and Nick feels uncomfortable and out of place. The whole scene makes him feel upset and disappointed.____ 4.) I describe Myrtle Wilson as loud and rude. At the party, she acts very boldly and without much regard for manners, which shows her attempt to appear more important and escape her lower-class background. Her behavior is a clear sign of her desire for a more glamorous life.____ 5.)The party at Myrtle Wilson’s apartment breaks up after a heated argument between Tom Buchanan and Myrtle. Tom gets angry when Myrtle keeps mentioning Daisy, his wife. In his rage, he strikes Myrtle, which causes a commotion. The violence and resulting tension lead to the party falling apart. _____________________________________________________________________________________________________________________________________________________________________  CHAPTER 3____ 1.)Nick explains that Gatsby's popularity comes from his huge, fancy parties. People love to attend these events, even though they don't know Gatsby. The excitement of this parties makes him a popular in West Egg.____ 2.)Owl Eyes is a character who attends Gatsby's party. He is named for his large glasses. He is a man that Nick runs across in Gatsby’s library.____ 3.) Gatsby mentioned that Nick looks familiar, turns out they know each other because they both served in the war together. __ 4.)There are a lot of people that speculate Gatsby. They say, before moving to Long Island, Gatsby was a German spy, Nick also hears that gatsby graduate on Oxford and that he once killed a man. But all of this are only rumours, so it's still unclear what did Gatsby do before moving to long island. __ 5.)Nick finds Jordan Baker attractive but somewhat dishonest. Nick knows that she cheated in her first golf tournament. ____________________________________________________________________________________________________________________________________________________________________  CHAPTER 4____ 1.)Gatsby tells Nick that he is from San Francisco. He shares this to impress Nick and talk about his rich background.____ 2.)When Gatsby gets pulled over by a police officer, he calmly shows the officer a white card. This card is special and seems to hold some power.____ 3.)Nick meets the shady figure Meyer Wolfsheim. Wolfsheim is involved in organized crime and is rumored to have fixed the 1919 World Series._____ 4.)Nick sees Gatsby standing on his dock on the first time he saw him. Nick realised that Gatsby was looking at a distant green light at Daisy's dock.____ 5.) Jordan suggested that Nick should invite Gatsby on his house while Daisy is there,because according to Jordan, Gatsby has asked her to convince Nick to arrange a reunion between Gatsby and Daisy. Because he is terrified that Daisy will refuse to see him.</p>
+              <h3>Reflection of CHAPTER 1-4</h3>
+           <p>In the beginning of the story, Nick Carraway mentioned that in his younger and most vulnerable years, his father gives him advice that he has been turning over his mind ever since. His father said, "Whenever you feel like criticising anyone, just remember that all the people in this world haven't had the advantages that you've had." This wonderful beginning really caught my interest. At first, I didn't understand what it really meant because the words were too deep, but after reading it many times, I understand that this means to not criticise or make quick judgements about other people. Now this made me curious, and I questioned myself, "Do I make quick judgements on anyone?" or "Have I ever been judged by anyone? For me, it's quite difficult to be judged with and to be judgemental. How can I ever judge anyone when I'm not perfect to judge a person? And how can anyone judge me when they're not perfect enough to judge me? Well, its how the world works; people are judging one another because of some useless reasons. Yes, I've been judged by other people many times—my friends, my family, and of course strangers. I don't have proof that they're judging me, but I can see it in their eyes, and for some reason, sometimes I can hear them judging me with my own ear. Hearing someone judge my appearance, personality, and opinions hurts so much. When you try doing your best on something but it turns out it's not enough for other people to appreciate it. Sometimes someone's words can cut so deep that they leave you speechless. You're left staring at them, wondering, How can they say something so hurtful and so cruel that your brain is racing with anger, hurt, and betrayal? But what can we do? It's how the real world works. In conclusion, on this chapter, I learnt not to make quick judgements on anyone without knowing their situation because if we judge someone, you're judging yourself too. __________________________________________________________________________________________________________________________________________________________________ In Chapter 2 of The Great Gatsby, the valley of ashes is shown as a dirty and sad place. Looking at the valley of ashes made us understand how similar it looks today. This also made us realise the gap between the poor and rich people. The Valley of Ashes is a grey and grim area. The people living there, like George Wilson, are poor and have struggled to live, which is different from the wealth and luxury that can be found in other settings of the story, like West Egg and New York City. Now a days, rich people don't care about the struggles of the poor people, which leads us to compare both sides; it also reflects the dirty and sad place of society today. Dirty because people are throwing their garbage everywhere and don't care about the pollution and the decisions that we can get from it. Sad because of the problems with bills and the struggle of the poor people to find a job to get money. This is the struggle of the poor people that the wealthy people can relate to. In conclusion, the Valley of Ashes in the Great Gatsby shows the gap between the poor and rich people. This gap is still a problem today. We can see the struggle of the poor and the luxury of the rich people. __________________________________________________________________________________________________________________________________________________________________ In Chapter 3 of the Great gatsby, we explores the theme of values through the extravagant parties thrown by Jay Gatsby and the behavior of the people who attend. This chapter reveals a lot about the society of the 1920s and what people truly value. Gatsby's parties are all about luxury—there's plenty of food, endless drinks, and lively entertainment. These gatherings capture the spirit of the Jazz Age, a time when people celebrated wealth and enjoyment above all else. However, the guests who come to these parties often don't even know Gatsby; they show up just for the fun and the status of being there. These behaviour shows that people only want excitement and glamour, even though they don't know Gatsby they still go his party. In conclusion, Chapter 3 of "The Great Gatsby" reflects on the values of the time by showcasing Gatsby's grand parties and the behavior of his guests. Through the observation of Nick Carraway, he discovered a lot of secrets and unclear rumours. This shows that people on this time have no shame to each other. __________________________________________________________________________________________________________________________________________________________________ In Chapter 4 of "The Great Gatsby," we see a big difference between what characters say and how they really act. Gatsby tries to impress people by claiming he’s rich and comes from a wealthy family, but when Nick meets Meyer Wolfsheim, a shady guy linked to crime, it makes us question where Gatsby's money really comes from. Tom and Daisy Buchanan also show this gap. They talk about their values and social status, but their actions say otherwise.They claim to care about family, but their actions show they don’t. This theme is relatable in real life. Companies might say they’re ethical but act dishonestly. Politicians make promises they don’t keep, and friends might claim to be loyal but betray that trust.</p>
+              <h3>Vocabulary of CHAPTER 1-4</h3>
+           <p>CHAPTER 1 _ Privy - adjective sharing in the knowledge of something secret or private. Anna is said to be the only privy for the secret information. _ Incline - verb Tend toward an opinion or feel willing or favorably disposed toward an action, belief, or attitude. I was very Inclined to take the risk instead of losing this job. _ Hostile - adjective Openly or actively unfriendly, opposed to someone or something and showing strong dislike. That girl is Hostile; maybe she has difficult problems that can't be solved.___ Glimpse-verb Take a brief look at or a momentary or partial view. I caught a glimpse of the mountains. _ Enormous- adjective Great in size, number or degree or very large in size, quantity, or extent. She takes an enormous bite of the food that they're eating. _ Scarcely- adjective Barel, almost not I scarcely forgot to write my name on the paper. _ Murmur- noun a soft, indistinct sound made by a person or group of people speaking quietly or at a distance. At the seaside, I can hear is the mumur of the wind. _ Imperative- adjective Expressing a command, urgent or of vital importance; crucial Yuki was in a hurry; suddenly she started to act imperatively because of the slowness of her brother. _ Radiant- adjective Glowing, beamibg with happiness I can see his radiant smile slowly fading. _ Sedative- adjective Serving to relieve tension or promoting calm or inducing sleep. Ever since her mom died, she didn't have a sedative sleep because of her sadness and loneliness. _ ___________________________________________________________________________________________________________________________________________________________________ CHAPTER 2___ Desolate- Adjective of a place) deserted of people and in a state of bleak and dismal emptiness. - That School looked desolate, with no one around and everything is falling apart. _ Obscure- Adjective not discovered or known about; uncertain. -Our Math subject was obscure and hard to understand. _ Acquaintance- Noun a person's knowledge or experience of something. - I ran into an old acquaintance at the park who I hadn't seen in years. _ Assumption-Noun a thing that is accepted as true or as certain to happen, without proof. - My assumption that the Bus was coming at 5 was wrong; it arrived at 4.___ Flush-Verb of a person's skin, face, etc.) become red and hot, typically as the result of illness or strong emotion. - She had a flush of red on her face when she realized she was late.___ Resemblance-Noun the state of resembling or being alike. -I adopted two dogs that hasa strong resemblance to each other.___ Fondle- Verb stroke or caress lovingly or erotically. - He gently fondled the old coin, enjoying its smooth surface. _ Interpose- Verb place or insert between one thing and another - The teacher had to interpose himself to stop the students from arguing.___ Immoderate- Adjective not sensible or restrained; excessive. -Her immoderate use of sugar in her coffee made it very sweet.___ Rustle- Verb make a soft, muffled crackling sound like that caused by the movement of dry leaves or paper. -I heard the soft rustle of papers as the wind blew through the open window. _________________________________________________________________________________________________________________________________________________________________ CAPTER 3___1. Supercilious
+      Definition: Behaving or looking as though one thinks one is superior to others. Sentence: The supercilious smile on Tom's face made it clear that he looked down on the other guests at Gatsby's party.___ 2. Aesthetic
+      Definition: Concerned with beauty or the appreciation of beauty. Sentence: The aesthetic decorations of Gatsby's mansion created an enchanting atmosphere for the evening. _ 3. Ethereal
+      Definition: Extremely delicate and light in a way that seems too perfect for this world; heavenly. Sentence: The ethereal quality of the music made everyone feel as if they were in a dream. _ 4. Garrulous
+      Definition: Excessively talkative, especially on trivial matters. Sentence: The garrulous guest monopolized the conversation, leaving little room for anyone else to speak.___ 5. Bantering
+      Definition: The playful and friendly exchange of teasing remarks. Sentence: The bantering between friends added to the lively and joyful atmosphere of the party. 6. Innuendo
+      Definition: An indirect or subtle reference, especially one made in a suggestive or disparaging way. Sentence: The party was filled with innuendos about Gatsby's wealth and mysterious past. _ 7. Prodigality
+      Definition: Excessive or wasteful spending; lavishness. Sentence: Gatsby's prodigality was evident in the overflowing buffet and the endless supply of champagne. _ 8. Disconcerting
+      Definition: Causing one to feel unsettled or confused. Sentence: It was disconcerting for Nick to discover that Gatsby was not the man he had imagined.___ 9. Subterfuge
+      Definition: Deceit used in order to achieve one’s goal; a trick. Sentence: Gatsby's subterfuge about his past made Nick question the truth behind his wealth. _ 10. Contemptuous
+      Definition: Showing contempt; scornful. Sentence: The contemptuous remarks made by some guests reflected their disdain for those who were not part of their social circle. _________________________________________________________________________________________________________________________________________________________________ CHAPTER 4___1. *Somnambulatory**Verb - Related to sleepwalking; characterized by a state of being sleepy or dazed.__ 2. *Punctilious adjective - Showing great attention to detail or correct behavior; very meticulous about following rules or conventions. _ 3. *Incredulously**adverb- In a manner indicating disbelief; skeptically or doubtfully.___ 4. *Juxtaposition Noun- The act of placing two or more things side by side for comparison or contrast. _ 5. Elicit verb - To draw out a response, answer, or fact from someone; to evoke or bring forth.___ 6. *Reproach**verb - To address someone in such a way as to express disapproval or disappointment; to blame.___ 7. **Disconcerting**adjective - Causing one to feel unsettled; disturbing or confusing in a way that disrupts one's composure.___ 8. **Intermittent**adjective - Occurring at irregular intervals; not continuous or steady. ___ 9. **Dissension**Noun - Disagreement that leads to discord; a conflict of opinions or actions.__ 10. **Transitory**Adjective - Temporary; not lasting or permanent; existing briefly. ___SENTENCE___ 1. *Somnambulatory: He walked in a somnambulatory state, not fully awake.__ 2. Punctilious: She was punctilious about arriving on time for every meeting. _ 3. Incredulously: He looked at the news incredulously, unable to believe it was true.__ 4. Juxtaposition: The artist used juxtaposition to show the difference between light and dark. __ 5. Elicit: The teacher tried to elicit answers from the shy students.__ 6. Reproach: She felt a sense of reproach when her friend pointed out her mistake. 7. Disconcerting: The sudden noise was disconcerting and made everyone jump. 8. Intermittent: The rain was intermittent, coming and going throughout the day.__ 9. Dissension: There was dissension among the team about which project to choose.__ 10. Transitory: The joy of winning was transitory, fading quickly after the game.</p>
+        </section>
+        <section class="content-section">
+            <h3>Output 7: Music</h3>
+            <p>Since I was a child, I have had a passion for music. I play different kinds of instruments, sing at various events, and listen to music composed by others. We created a time scroll that details our research on the evolution of theater. This project has deepened my understanding of music.</p>
+            <!-- Projects Section -->
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="m.jpg" alt="Pic 1">
+                </div>
+        </section>
+        <section class="content-section">
+            <h3>Output 8: Arts</h3>
+            <p>While I may not be an expert at painting, I greatly admire the works of different artists from various periods. For a project, we painted representations of our happiness or hobbies. I love night scenery, playing guitar, and singing. I attempted to create an artwork, and I think it turned out pretty well.</p>
+            <!-- Projects Section -->
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="a.jpg" alt="Pic 1">
+                </div>
+        </section>
+        <section class="content-section">
+            <h3>Output 9: P.E</h3>
+            <p>Physical Education teaches us a variety of knowledge related to our bodies. It’s fun to recreate different festival dances from the Philippines. We engage in this not only for grades but also to gain a better understanding of our culture.
+            </p>
+            <video width="400" controls>
+                <source src="pe.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+              </video>
+        </section>
+        <section class="content-section">
+            <h3>Output 10: Health</h3>
+            <p>Our mental, physical, and social health is very important because it is our body that we protect. Having knowledge about what to do in case of accidents or scenarios related to our health is crucial—not just for ourselves but also for the safety of others. We conducted a project where we practiced the proper techniques for bandaging.</p>
+            <video width="400" controls>
+                <source src="h.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+              </video>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h3>If You Have Any Responces Or Suggestion Through This Web Page, Do Not Hesitate To Contact Me!!</h3>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Web Blog. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
